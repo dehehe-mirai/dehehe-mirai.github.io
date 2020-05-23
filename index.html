@@ -18,16 +18,16 @@
       });
     }
     function load() {
+      console.log("load called");
       var textarea = document.querySelector("#textarea");
       fetch(textarea);
     }
-    document.onload = load;
     function preloadedText() {
       return "test";
     }
   </script>
 </head>
-<body>
+<body onload = "load">
   <h1>한패 스크립트</h1>
   <span id="loading">로드중...</span>
   <textarea id="textarea">
