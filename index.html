@@ -33,7 +33,7 @@
 })();
 `;
       
-        textarea.innerText = text + textarea.innerText;
+        textarea.innerText = text.concat(textarea.innerText);
     }
     function buttonHandlerRight() {
       var textarea = document.querySelector("#textarea");
@@ -54,7 +54,7 @@
 })();
 `;
       
-        textarea.innerText = text + textarea.innerText;
+         textarea.innerText = text.concat(textarea.innerText);
     }
     
     function buttonHandler() {
