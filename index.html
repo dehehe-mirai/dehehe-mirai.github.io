@@ -4,60 +4,61 @@
   <script>
     function loadScript() {
       var textarea = document.querySelector("#textarea");
-      /*
+      
       fetch("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((_response)=>{
         _response.text().then((response)=>{
         textarea.innerText = response;
         document.querySelector("#loading").remove();
         });
       });
-      */
+      
     }
     
     function buttonHandlerLeft() {
       var textarea = document.querySelector("#textarea");
       var text = `(function()
-        {
-          Object.defineProperty(navigator, 'userAgent', {
-            value: 'Mozilla/5.0 (iPad; CPU OS 13_1_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Mobile/15E148 Safari/604.1'
-          });
+{
+  Object.defineProperty(navigator, 'userAgent', {
+    value: 'Mozilla/5.0 (iPad; CPU OS 13_1_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Mobile/15E148 Safari/604.1'
+  });
 
-          setTimeout(function(){
-          const tabbarWidth = 50;
-          var canvasStyle = document.querySelector("#prim-body > canvas").style;
+  setTimeout(function(){
+  const tabbarWidth = 50;
+  var canvasStyle = document.querySelector("#prim-body > canvas").style;
 
-          canvasStyle.left= tabbarWidth + "px";
-          canvasStyle.width= (parseInt(canvasStyle.width) - tabbarWidth) + "px";
-          canvasStyle.height = "auto";
-        }, 2000);
-      })();`;
+  canvasStyle.left= tabbarWidth + "px";
+  canvasStyle.width= (parseInt(canvasStyle.width) - tabbarWidth) + "px";
+  canvasStyle.height = "auto";
+}, 2000);
+})();
+`;
       
         textarea.innerText = text + textarea.innerText;
     }
     function buttonHandlerRight() {
       var textarea = document.querySelector("#textarea");
       var text = `(function()
-      {
-        Object.defineProperty(navigator, 'userAgent', {
-          value: 'Mozilla/5.0 (iPad; CPU OS 13_1_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Mobile/15E148 Safari/604.1'
-        });
+{
+  Object.defineProperty(navigator, 'userAgent', {
+    value: 'Mozilla/5.0 (iPad; CPU OS 13_1_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Mobile/15E148 Safari/604.1'
+  });
 
-        setTimeout(function(){
-        const tabbarWidth = 50;
-        var canvasStyle = document.querySelector("#prim-body > canvas").style;
+  setTimeout(function(){
+  const tabbarWidth = 50;
+  var canvasStyle = document.querySelector("#prim-body > canvas").style;
 
-        canvasStyle.right= tabbarWidth + "px";
-        canvasStyle.width= (parseInt(canvasStyle.width) - tabbarWidth) + "px";
-        canvasStyle.height = "auto";
-      }, 2000);
-      })();`;
+  canvasStyle.right= tabbarWidth + "px";
+  canvasStyle.width= (parseInt(canvasStyle.width) - tabbarWidth) + "px";
+  canvasStyle.height = "auto";
+}, 2000);
+})();
+`;
       
         textarea.innerText = text + textarea.innerText;
     }
     
     function buttonHandler() {
-        //var textarea = document.querySelector("#textarea");
-        var textarea = document.querySelector("#iframe").content.innerHTML;
+        var textarea = document.querySelector("#textarea");
         
         textarea.select();
         textarea.setSelectionRange(0, 999999); /*For mobile devices*/
@@ -75,9 +76,7 @@
   <button onclick="buttonHandlerRight()">탭바 오른쪽 스크립트 삽입</button>
   <button onclick="buttonHandler()">복사하기</button>
   <p id="loading">로드중...</p>
-  <textarea id="textarea">
+  <textarea id="textarea" maxlength="524288524288">
   </textarea>
-  <iframe id="iframe" src="https://newbiepr.github.io/shinymaskr/ShinyColors.user.js">
-  </iframe>
 </body>
 </html
