@@ -3,10 +3,10 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://newbiepr.github.io/"></meta>
   <script>
     function copyToClipboard(textarea) {
-      fetch("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((response)=>{
+      fetch("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((_response)=>{
         document.querySelector("#loading").remove();
         var text = preloadedText();
-        console.log(response.text());
+        _response.text().then((response)=>{
         text += response.text();
         textarea.innerText = text;
         textarea.select();
@@ -15,6 +15,7 @@
         /* Copy the text inside the text field */
         document.execCommand("copy");
         alert("copy 완료");
+        });
       });
     }
     function preloadedText() {
