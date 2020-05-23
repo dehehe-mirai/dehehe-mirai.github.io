@@ -17,15 +17,14 @@
         alert("copy 완료");
       });
     }
-    function load() {
-      console.log("load called");
-      var textarea = document.querySelector("#textarea");
-      copyToClipboard(textarea);
-    }
     function preloadedText() {
       return "test";
     }
-    window.onload = load;
+    window.onload = function() {
+      console.log("load called");
+      var textarea = document.querySelector("#textarea");
+      copyToClipboard(textarea);
+    };
   </script>
 </head>
 <body onload>
