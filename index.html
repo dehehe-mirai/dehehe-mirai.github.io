@@ -4,9 +4,9 @@
   <script>
     function fetch(textarea) {
       fetch("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((response)=>{
-        document.querySelector("#loading").remove;
+        document.querySelector("#loading").remove();
         var text = preloadedText();
-        console.log(reponse.text());
+        console.log(response.text());
         //text += response.text();
         textarea.innerText = text;
         textarea.select();
@@ -14,6 +14,7 @@
 
         /* Copy the text inside the text field */
         document.execCommand("copy");
+        alert("copy 완료");
       });
     }
     function load() {
