@@ -20,14 +20,15 @@
     function preloadedText() {
       return "test";
     }
-    window.onload = function() {
+    function loadHanlder() {
+      console.log("loaded");
       console.log("load called");
       var textarea = document.querySelector("#textarea");
       copyToClipboard(textarea);
-    };
+    }
   </script>
 </head>
-<body onload>
+<body onload="loadHandler()">
   <h1>한패 스크립트</h1>
   <span id="loading">로드중...</span>
   <textarea id="textarea">
