@@ -7,7 +7,7 @@
         document.querySelector("#loading").remove();
         var text = preloadedText();
         _response.text().then((response)=>{
-        text += response.text();
+        text += response;
         textarea.innerText = text;
         textarea.select();
         textarea.setSelectionRange(0, 99999); /*For mobile devices*/
