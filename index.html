@@ -2,32 +2,40 @@
 <head>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://newbiepr.github.io/"></meta>
   <script>
-    function copyToClipboard(textarea) {
+    function copyToClipboard() {
+      var textarea = document.querySelector("#textarea");
       fetch("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((_response)=>{
-        document.querySelector("#loading").remove();
         var text = preloadedText();
         _response.text().then((response)=>{
         text += response;
         textarea.innerText = text;
+        document.querySelector("#loading").remove();
+        });
+      });
+    }
+    
+    function preloadedText() {
+      return "test
+      ";
+    }
+    
+    function buttonHandler() {
+        var textarea = document.querySelector("#textarea");
         textarea.select();
         textarea.setSelectionRange(0, 99999); /*For mobile devices*/
 
         /* Copy the text inside the text field */
         document.execCommand("copy");
-        });
-      });
     }
-    function preloadedText() {
-      return "test";
-    }
+    
     function loadHandler() {
-      var textarea = document.querySelector("#textarea");
-      copyToClipboard(textarea);
+      copyToClipboard();
     }
   </script>
 </head>
 <body onload="loadHandler()">
   <h1>한패 스크립트</h1>
+  <button onclick="">복사하기</button>
   <p id="loading">로드중...</p>
   <textarea id="textarea">
   </textarea>
