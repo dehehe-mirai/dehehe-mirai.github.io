@@ -7,7 +7,7 @@
       
       fetch("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((_response)=>{
         _response.text().then((response)=>{
-        textarea.innerText = response;
+        textarea.value = response;
         document.querySelector("#loading").remove();
         });
       });
@@ -33,7 +33,7 @@
 })();
 `;
       
-        textarea.innerText = text.concat(textarea.innerText);
+        textarea.value += text;
     }
     function buttonHandlerRight() {
       var textarea = document.querySelector("#textarea");
@@ -54,7 +54,7 @@
 })();
 `;
       
-         textarea.innerText = text.concat(textarea.innerText);
+         textarea.value += text;
     }
     
     function buttonHandler() {
