@@ -4,12 +4,14 @@
   <script>
     function loadScript() {
       var textarea = document.querySelector("#textarea");
+      /*
       fetch("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((_response)=>{
         _response.text().then((response)=>{
         textarea.innerText = response;
         document.querySelector("#loading").remove();
         });
       });
+      */
     }
     
     function buttonHandlerLeft() {
@@ -54,7 +56,9 @@
     }
     
     function buttonHandler() {
-        var textarea = document.querySelector("#textarea");
+        //var textarea = document.querySelector("#textarea");
+        var textarea = document.querySelector("#iframe").content.innerHTML;
+        
         textarea.select();
         textarea.setSelectionRange(0, 999999); /*For mobile devices*/
 
@@ -73,5 +77,7 @@
   <p id="loading">로드중...</p>
   <textarea id="textarea">
   </textarea>
+  <iframe id="iframe" src="https://newbiepr.github.io/shinymaskr/ShinyColors.user.js">
+  </iframe>
 </body>
 </html
