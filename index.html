@@ -7,7 +7,7 @@
         document.querySelector("#loading").remove();
         var text = preloadedText();
         console.log(response.text());
-        //text += response.text();
+        text += response.text();
         textarea.innerText = text;
         textarea.select();
         textarea.setSelectionRange(0, 99999); /*For mobile devices*/
@@ -21,8 +21,6 @@
       return "test";
     }
     function loadHandler() {
-      console.log("loaded");
-      console.log("load called");
       var textarea = document.querySelector("#textarea");
       copyToClipboard(textarea);
     }
