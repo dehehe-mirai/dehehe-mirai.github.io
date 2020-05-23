@@ -2,7 +2,7 @@
 <head>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://newbiepr.github.io/"></meta>
   <script>
-    function copyToClipboard() {
+    function loadScript() {
       var textarea = document.querySelector("#textarea");
       fetch("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((_response)=>{
         var text = preloadedText();
@@ -14,9 +14,45 @@
       });
     }
     
-    function preloadedText() {
-      return `test
-      `;
+    function buttonHandlerLeft() {
+      var textarea = document.querySelector("#textarea");
+      var text = `(function()
+        {
+          Object.defineProperty(navigator, 'userAgent', {
+            value: 'Mozilla/5.0 (iPad; CPU OS 13_1_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Mobile/15E148 Safari/604.1'
+          });
+
+          setTimeout(function(){
+          const tabbarWidth = 50;
+          var canvasStyle = document.querySelector("#prim-body > canvas").style;
+
+          canvasStyle.left= tabbarWidth + "px";
+          canvasStyle.width= (parseInt(canvasStyle.width) - tabbarWidth) + "px";
+          canvasStyle.height = "auto";
+        }, 2000);
+      })();`;
+      
+        textarea.innerText = text + textarea.innerText;
+    }
+    function buttonHandlerRight() {
+      var textarea = document.querySelector("#textarea");
+      var text = `(function()
+      {
+        Object.defineProperty(navigator, 'userAgent', {
+          value: 'Mozilla/5.0 (iPad; CPU OS 13_1_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Mobile/15E148 Safari/604.1'
+        });
+
+        setTimeout(function(){
+        const tabbarWidth = 50;
+        var canvasStyle = document.querySelector("#prim-body > canvas").style;
+
+        canvasStyle.right= tabbarWidth + "px";
+        canvasStyle.width= (parseInt(canvasStyle.width) - tabbarWidth) + "px";
+        canvasStyle.height = "auto";
+      }, 2000);
+      })();`;
+      
+        textarea.innerText = text + textarea.innerText;
     }
     
     function buttonHandler() {
@@ -28,13 +64,13 @@
         document.execCommand("copy");
     }
     
-    function loadHandler() {
-      copyToClipboard();
-    }
   </script>
 </head>
-<body onload="loadHandler()">
+<body onload="loadScript()">
   <h1>한패 스크립트</h1>
+  <p>참고:<a>https://gall.dcinside.com/mgallery/board/view/?id=shinycolors&no=188502</a><p>
+  <button onclick="buttonHandlerLeft()">탭바 왼쪽 스크립트 삽입</button>
+  <button onclick="buttonHandlerRight()">탭바 오른쪽 스크립트 삽입</button>
   <button onclick="buttonHandler()">복사하기</button>
   <p id="loading">로드중...</p>
   <textarea id="textarea">
