@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://newbiepr.github.io/"></meta>
   <script>
     function copyToClipboard(textarea) {
-      copyToClipboard("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((response)=>{
+      fetch("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((response)=>{
         document.querySelector("#loading").remove();
         var text = preloadedText();
         console.log(response.text());
