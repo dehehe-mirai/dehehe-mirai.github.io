@@ -5,10 +5,8 @@
     function loadScript() {
       var textarea = document.querySelector("#textarea");
       fetch("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((_response)=>{
-        var text = preloadedText();
         _response.text().then((response)=>{
-        text += response;
-        textarea.innerText = text;
+        textarea.innerText = response;
         document.querySelector("#loading").remove();
         });
       });
