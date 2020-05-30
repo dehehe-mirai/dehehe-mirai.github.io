@@ -5,8 +5,7 @@
     function loadScript() {
       var textarea = document.querySelector("#textarea");
       var iframe = document.querySelector("#scr");
-      var innerSelector = document.querySelector("#script-content > pre")
-      var response = iframe.
+      var response = iframe.contentDocument.querySelector("#script-content > pre").innerText;
       textarea.value = response;
       
     }
