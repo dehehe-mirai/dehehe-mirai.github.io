@@ -1,16 +1,13 @@
 <html>
 <head>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://newbiepr.github.io/"></meta>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://newbiepr.github.io/ https://greasyfork.org"></meta>
   <script>
     function loadScript() {
       var textarea = document.querySelector("#textarea");
-      
-      fetch("https://newbiepr.github.io/shinymaskr/ShinyColors.user.js").then((_response)=>{
-        _response.text().then((response)=>{
-        textarea.value = response;
-        document.querySelector("#loading").remove();
-        });
-      });
+      var iframe = document.querySelector("#scr");
+      var innerSelector = document.querySelector("#script-content > pre")
+      var response = iframe.
+      textarea.value = response;
       
     }
     
@@ -64,7 +61,6 @@
         document.execCommand("cut");
         alert("잘라내기 완료");
     }
-    
   </script>
 </head>
 <body>
@@ -82,5 +78,6 @@
   <textarea style="width:100%" id="textarea" maxlength="524288524288">
     
   </textarea>
+  <iframe id="scr" onload="loadScript()" src="https://greasyfork.org/ko/scripts/404372-%EC%83%A4%EB%8B%88%EB%A7%88%EC%8A%A4-%ED%95%9C%EA%B8%80-%ED%8C%A8%EC%B9%98-%EC%9E%84%EC%8B%9C/code"></iframe>
 </body>
 </html
